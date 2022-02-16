@@ -7,7 +7,7 @@ import StreamEdit from "./StreamEdit";
 const StreamList = (props) => {
   useEffect(() => {
     props.fetchStreams();
-  });
+  }, []);
 
   const renderAdmin = (stream) => {
     if (stream.userId === props.currentUserId) {
@@ -16,7 +16,9 @@ const StreamList = (props) => {
           <Link to={`/streams/edit/${stream.id}`} className="ui button primary">
             Edit
           </Link>
-          <button className="ui button negative">Delete</button>
+          <Link to={`/streams/delete/${stream.id}`}className="ui button negative">
+            Delete
+          </Link>
         </div>
       );
     }

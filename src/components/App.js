@@ -1,6 +1,5 @@
 import React from "react";
-import { unstable_HistoryRouter as HistoryRouter, BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import history from '../history';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import StreamCreate from "./streams/StreamCreate";
 import StreamEdit from "./streams/StreamEdit";
@@ -19,7 +18,7 @@ const App = () => {
           <Route path="/" element={<StreamList />} />
           <Route path="/streams/new" element={<StreamCreate />} />
           <Route path="/streams/edit/:id" element={<StreamEdit />} />
-          <Route path="/streams/delete" element={<StreamDelete />} />
+          <Route path="/streams/delete/:id" element={<StreamDelete />} />
           <Route path="/streams/show" element={<StreamShow />} />
         </Routes>
       </Router>
