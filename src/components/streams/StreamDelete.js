@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 export function withRouter() {
   return (props) => {
-    // console.log("Props (StreamEdit): ", props);
     const match = { params: useParams() };
     return <StreamDelete {...props} match={match} />;
   };
@@ -17,11 +16,9 @@ export function withRouter() {
 const StreamDelete = (props) => {
   useEffect(() => {
     props.fetchStream(props.match.params.id);
-    //console.log(props);
   }, []);
 
   const onSubmit = () => {
-    //console.log(formValues);
     props.deleteStream(props.match.params.id);
     navigate("/");
   };
@@ -48,8 +45,7 @@ const StreamDelete = (props) => {
       />
   );
 };
-const mapStateToProps = (state, ownProps) => {
-  //console.log(state.streams[Object.keys(state.streams)[0]]);
+const mapStateToProps = (state) => {
   return { streams: state.streams };
 };
 
